@@ -27,7 +27,10 @@ app.get('/bedtijd', (req, res) => {
     const hexvalues = []
 
     for (let i of dataset) {
-        if (!i.oogKleur.match(/^[0-9A-Fa-f]{6}$/) && i.oogKleur.startsWith('#')) {
+        if (!i.oogKleur.startsWith('#')) {
+            i.oogKleur = `#${i.oogKleur}`
+        }
+        if (i.oogKleur.match( /[0-9A-Fa-f]{6}/g) && i.oogKleur.startsWith('#')) {
             if (i.oogKleur.startsWith('# ')) {
                 i.oogKleur = i.oogKleur.replace(/\s/g,'') //s --> space //g --> replace globally
             }
