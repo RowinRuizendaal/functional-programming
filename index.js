@@ -19,26 +19,25 @@ app.get('/bedtijd', (req, res) => {
     for (let i = 0; i < dataset.length; i ++) {
         const number = moment(`${dataset[i].bedtijd}`, ["h:mm A"]).format("HH:mm");
         empty.push(number)
-
     }
     return res.json(empty)
   })
 
   app.get('/oogkleur', (req, res) => {
-    const empty = []
-    const hashtag = []
+    const hexvalues = []
 
-    for (let i = 0; i < dataset.length; i ++) {
-        const str = dataset[i].oogKleur.startsWith('#')
-        if (!str) {
-            console.log(dataset[i].oogKleur)
-            hashtag.push(str)
+    for (let i of dataset) {
+        if (!i.oogKleur.match(/^[0-9A-Fa-f]{6}$/) && i.oogKleur.startsWith('#')) {
+            if (i.oogKleur.startsWith('# ')) {
+                i.oogKleur = i.oogKleur.replace(/\s/g,'') //s --> space //g --> replace globally
+            }
+            hexvalues.push(i.oogKleur)
+        } else {
+            console.log(`${i.oogKleur} is not a valid hexcolor`)
         }
-        empty.push(dataset[i].oogKleur)
-
     }
-    console.log(hashtag.length)
-    return res.json(empty)
+    console.log(hexvalues)
+    return res.json(hexvalues)
   })
 
 
