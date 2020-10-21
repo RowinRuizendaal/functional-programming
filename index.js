@@ -14,34 +14,41 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 app.get('/bedtijd', (req, res) => {
-    const empty = []
+    const bedtijden = []
 
     for (let i = 0; i < dataset.length; i ++) {
         const number = moment(`${dataset[i].bedtijd}`, ["h:mm A"]).format("HH:mm");
-        empty.push(number)
+        bedtijden.push(number)
     }
-    return res.json(empty)
+    return res.json(bedtijden)
   })
 
   app.get('/oogkleur', (req, res) => {
-    const hexvalues = []
+    // const hexvalues = dataset.map(hexvalue => {
+        
+    //     return hexvalue.oogKleur
+    // })
 
-    for (let i of dataset) {
-        if (!i.oogKleur.startsWith('#')) {
-            i.oogKleur = `#${i.oogKleur}`
+    const hexvalues = dataset
+    .filter(hexvalue => hexvalue.oogKleur.match( /[0-9A-Fa-f]{6}/g))
+    .map(hexvalue => {
+        
+        if (!hexvalue.oogKleur.startsWith('#')) { //Place a # for every string
+            hexvalue.oogKleur = `#${hexvalue.oogKleur}`
         }
-        if (i.oogKleur.match( /[0-9A-Fa-f]{6}/g) && i.oogKleur.startsWith('#')) {
-            if (i.oogKleur.startsWith('# ')) {
-                i.oogKleur = i.oogKleur.replace(/\s/g,'') //s --> space //g --> replace globally
-            }
-            hexvalues.push(i.oogKleur)
-        } else {
-            console.log(`${i.oogKleur} is not a valid hexcolor`)
+
+            if (hexvalue.oogKleur.includes(' ')) { // detect space
+            hexvalue.oogKleur = hexvalue.oogKleur.replace(/\s/g,'') //s --> space //g --> replace globally
         }
-    }
+
+        return hexvalue.oogKleur
+    })
+
     console.log(hexvalues)
     return res.json(hexvalues)
-  })
+})
+
+
 
 
 app.listen(port, () => console.log(`app listening at http://localhost:${port}`))
