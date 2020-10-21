@@ -18,6 +18,9 @@ const dataset = require('./dataset/Survey_Information_Design_clean-parsed.json')
 
 Located in index.js, for privacy reasons I am not allowed to share this one
 
+
+### Install project
+
 ```
 yarn install
 ```
@@ -38,5 +41,5 @@ npm run lint
 
 ### License
 
-Authtor: [RowinRuizendaal](https://github.com/rowinruizendaal), license: [mit](https://github.com/RowinRuizendaal/functional-programming/LICENSE)
+Authtor: [RowinRuizendaal](https://github.com/rowinruizendaal), license: [mit](https://github.com/RowinRuizendaal/functional-programming/blob/Master/LICENSE)
 
