@@ -18,12 +18,10 @@ router.get('/oogkleur', (req, res) => {
     'grijs': '#666666',
   };
 
-  const lookupColor = (string) => {
-    return lookuptable[string.toLowerCase()];
-  };
 
   // https://github.com/Vuurvos1/functional-programming/blob/79e207836da26f8c7d9f264391db0ae1f25d9008/index.js#L35-L52
   // https://stackoverflow.com/questions/1573053/javascript-function-to-convert-color-names-to-hex-codes/24390910
+  // function to convert RGB value into HEX value
   const convertRGBtohex = (rgb) => {
     // remove unnecessary symbols
     let color = rgb.replace(/\./g, ',').replace(/[a-z\(\)]/g, '');
@@ -47,13 +45,13 @@ router.get('/oogkleur', (req, res) => {
   const convert = hexvalues
       .map((hexvalue) => {
         hexvalue = hexvalue
+            .toLowerCase()
             .replace(/\s/g, ''); // s --> space //g --> replace globally
 
         if (hexvalue.match(/#[0-9A-Fa-f]{6}/g)) { // If color matches hex pattern
           return hexvalue;
-        } else if (hexvalue.toLowerCase() in lookuptable) { // Lookup the color
-          const lookup = lookupColor(hexvalue);
-          return lookup;
+        } else if (hexvalue in lookuptable) { // Lookup the color
+          return lookuptable[hexvalue];
         } else if (hexvalue.includes('rgb')) {
           const rgbvalue = convertRGBtohex(hexvalue);
           return rgbvalue;
