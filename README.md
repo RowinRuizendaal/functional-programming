@@ -1,9 +1,18 @@
 # Functional-programming
 
 
-## About
+## Volkskrant assignment
 
-This is the reprository for cleaning the datavisualistaion students dataset formated in JSON, 
+For the Volkskrant, we are having a look into the RDW datasets that are provided to find interesting insights for a potential article about parking, where it is all about cars.
+
+The assignment is to filter and find connections with different datasets where 'parking' (cars) is the middle word for each of these datasets, one head question can be answered by the datasets. The main goal of this assignment is to link interesting links with each other and to filter data out of the available datasets
+
+This wiki also contains assignments apart from the volkrant, these are practice dataset that were filled in by the student that are following the course: datavizualisation.
+
+
+## Concept
+
+Making a geographical map for parking places where you can see how much you need to pay for a certain parking place and how much it cost per hour also I am going to note down how you can pay the parking fee (cash, banknotes, VISA etc)
 
 ## Research question
 
