@@ -48,15 +48,6 @@ The primary key (PK) in these datasets is : areaid, with this key I am able to f
 
 **To run this project you need to have a dataset avaible in the directory**
 
-dataset/some_dataset.json or change the:
-
-```js
-const dataset = require('./dataset/Survey_Information_Design_clean-parsed.json');
-```
-
-Located in index.js, for privacy reasons I am not allowed to share this one
-
-
 ### Install project
 
 ```
