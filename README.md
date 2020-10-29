@@ -7,7 +7,7 @@ For the Volkskrant, we are having a look into the RDW datasets that are provided
 
 The assignment is to filter and find connections with different datasets where 'parking' (cars) is the middle word for each of these datasets, one head question can be answered by the datasets. The main goal of this assignment is to link interesting links with each other and to filter data out of the available datasets
 
-This wiki also contains assignments apart from the volkrant, these are practice dataset that were filled in by the student that are following the course: datavizualisation.
+This wiki also contains assignments apart from the volkrant, these are practice datasets that were filled in by the students that are following the course: datavizualisation.
 
 
 ## Concept
