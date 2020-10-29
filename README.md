@@ -72,3 +72,19 @@ npm run lint
 
 Authtor: [RowinRuizendaal](https://github.com/rowinruizendaal), license: [MIT](https://github.com/RowinRuizendaal/functional-programming/blob/Master/LICENSE)
 
+
+### Credits
+
+[vuurvos1](https://github.com/vuurvos1) For the good coding talks in Discord ༼ つ ◕_◕ ༽つ and the helpfull help
+
+
+### Resources
+
+Arora, S. (2019, March 27). Understanding Higher-Order Functions in JavaScript - Bits and Pieces. Medium. 
+https://blog.bitsrc.io/understanding-higher-order-functions-in-javascript-75461803bad
+
+Elliott, E. (2019, July 2). Master the JavaScript Interview: What is Functional Programming? Medium. 
+https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0
+
+Open Data | | Open Data. (n.d.). RDW. Retrieved October 29, 2020, from 
+https://opendata.rdw.nl/
