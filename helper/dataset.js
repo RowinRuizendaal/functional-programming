@@ -1,3 +1,17 @@
+const axios = require('axios');
+
+/**
+ * Fetch data with axios
+ * @param {string} url - Array containing dataset
+ * @return {array} array containing values from the selected column
+ */
+
+const fetchData = async (url) => {
+  const fetch = await axios.get(url);
+  return fetch.data;
+};
+
+
 /**
  * Get data from a single column
  * @param {array} dataset - Array containing dataset
@@ -29,6 +43,7 @@ const getColumns = (dataset, columns) => {
 };
 
 module.exports = {
+  fetchData,
   getColumn,
   getColumns,
 

@@ -53,8 +53,23 @@ const combineDataset = ((dataset1, dataset2, keyword) => {
   return values;
 });
 
+const pricePerHour = ((dataset) => {
+  return dataset.map((el) => {
+    return {
+      areamanagerid: el.areamanagerid,
+      pricePerHour: roundToTwoDecimals(el.amountfarepart / el.stepsizefarepart * 60),
+    };
+  } );
+});
+
+// https://stackoverflow.com/questions/11832914/round-to-at-most-2-decimal-places-only-if-necessary
+const roundToTwoDecimals = (((number) => {
+  return number.toFixed(2);
+}));
+
 
 module.exports = {
   getCoords,
   combineDataset,
+  pricePerHour,
 };

@@ -3,7 +3,8 @@ const router = express.Router();
 const datasetHelper = require('../../../helper/dataset');
 const dataHelper = require('../../../utils/dataHelper');
 const dataset1 = require('../../../dataset/RWD/r3rs-ibz5.json'); // Local file for testing purpose
-const dataset2 = require('../../../dataset/RWD/t5pc-eb34.json'); // Local file for testing purpose
+const dataset2 = require('../../../dataset/RWD/534e-5vdg.json'); // Local file for testing purpose
+const dataset3 = require('../../../dataset/RWD/t5pc-eb34.json'); // Local file for testing purpose
 
 /**
  * Datasets needed
@@ -14,15 +15,26 @@ const dataset2 = require('../../../dataset/RWD/t5pc-eb34.json'); // Local file f
 
 
 router.get('/betaalmethode', async (req, res) => {
-  // Get areaID & paymentmethod
-  const endpoint1 = datasetHelper.getColumns(dataset1, ['areaid', 'paymentmethod']);
-  // Get latitude & longitude
-  const endpoint2 = dataHelper.getCoords(dataset2);
+  // Get areaManagerId & areadId & paymentMethod
+  const paymentMethod = datasetHelper.getColumns(dataset1, ['areamanagerid', 'areaid', 'paymentmethod']);
 
-  // combine the datasets together with the key areaid
-  const combine = dataHelper.combineDataset(endpoint1, endpoint2, 'areaid');
+  // get prices per areaManagerId
+  const prices = datasetHelper.getColumns(dataset2, ['areamanagerid', 'amountfarepart', 'stepsizefarepart']);
 
-  return res.json(combine);
+  // convert price to price per hour
+  const pricePerHour = dataHelper.pricePerHour(prices);
+
+  // Join pricePerHour and paymentMethod togeter
+  const join1 = dataHelper.combineDataset(pricePerHour, paymentMethod, 'areamanagerid');
+
+  // get cordinates latitude & longitude
+  const coords = dataHelper.getCoords(dataset3);
+
+
+  // join latitude/longitude with previous join
+  const join2 = dataHelper.combineDataset(join1, coords, 'areaid');
+
+  return res.json(join2);
 });
 
 module.exports = router;
