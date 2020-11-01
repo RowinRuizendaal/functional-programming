@@ -23,6 +23,7 @@ router.get('/betaalmethode', async (req, res) => {
 
   // convert price to price per hour
   const pricePerHour = dataHelper.pricePerHour(prices);
+  // need to test this tomorrow -> output
 
   // Join pricePerHour and paymentMethod togeter
   const join1 = dataHelper.combineDataset(pricePerHour, paymentMethod, 'areamanagerid');

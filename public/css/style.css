@@ -1,0 +1,22 @@
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #1A1F2B;
+};
+
+@media screen and (min-width: 48rem) { /*768 pixels Desktop*/
+}
+
+
+
+/* Tablet Portrait */
+@media only screen and (min-device-width: 48rem) and (max-device-width: 64rem) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {
+}
+
+/* Tablet Landscape */
+@media only screen and (min-device-width: 48rem) and (max-device-width: 64rem) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {
+}
