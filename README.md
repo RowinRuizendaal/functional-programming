@@ -68,6 +68,11 @@ Fix all lint issues with just one command
 npm run lint
 ```
 
+### Sketches
+
+![Sketches](https://raw.githubusercontent.com/wiki/RowinRuizendaal/functional-programming/assets/sketches.png)
+
+
 ### License
 
 Authtor: [RowinRuizendaal](https://github.com/rowinruizendaal), license: [MIT](https://github.com/RowinRuizendaal/functional-programming/blob/Master/LICENSE)
